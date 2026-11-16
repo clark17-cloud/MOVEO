@@ -1,461 +1,485 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>MOVEO | Move. Discover. Go.</title>
-<link href="style.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><script defer="True" src="script.js"></script></head>
-<body>
-<!-- Navigation -->
-<header>
-<nav class="navbar">
-<button aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle" type="button">☰</button><a class="logo" href="#home">MOVEO</a>
-<div class="nav-links">
-<a href="#home">Home</a><a href="#preview">Preview</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#video">Video</a>
-<a href="#contact">Contact</a>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d0e">
+  <title>MOVEO | Move. Discover. Go.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+
+<!-- MOVEO CINEMATIC INTRO -->
+<div id="moveo-intro" class="moveo-intro" aria-label="MOVEO introduction">
+    <div class="intro-glow"></div>
+
+    <div class="intro-waves" aria-hidden="true">
+        <div class="intro-wave wave-one"></div>
+        <div class="intro-wave wave-two"></div>
+        <div class="intro-wave wave-three"></div>
+    </div>
+
+    <div class="intro-content">
+        <p class="intro-eyebrow">THE FUTURE OF ACTIVE LIVING</p>
+        <h1>MOVEO<span>.</span></h1>
+        <p class="intro-tagline">Move. Discover. Go.</p>
+    </div>
+
+    <div class="intro-progress">
+        <span></span>
+    </div>
 </div>
-</nav>
-</header>
-<!-- 1. Home -->
 
-<!-- HOME / HERO SECTION -->
-<section class="hero" id="home">
+<body>
+  <div class="background-grid" aria-hidden="true"></div>
 
-    <!-- Background animations -->
-    <div class="hero-effects" aria-hidden="true">
-        <div class="hero-glow"></div>
-        <div class="hero-grid"></div>
-        <div class="hero-light"></div>
-    </div>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+    <a href="#home" class="brand">
+    <img src="image/M1.png" alt="MOVEO Logo" class="brand-logo">
+    <span>MOVEO<span class="accent">.</span></span>
+</a>
+      <button class="menu-toggle" type="button"
+        aria-controls="nav-links" aria-expanded="false"
+        aria-label="Toggle menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#preview">Preview</a>
+        <a href="#services">Services</a>
+        <a href="#video">Video</a>
+        <a href="#contact">Contact</a>
+        <a href="#team">Team</a>
+      </div>
+      <a class="button button-small nav-action" href="#preview">
+        Explore now ↗
+      </a>
+    </nav>
+  </header>
 
-    <!-- LEFT SIDE: TEXT -->
-    <div class="hero-content">
-
-        <div class="hero-badge">
-            ● THE FUTURE OF ACTIVE LIVING
-        </div>
-
+  <main>
+    <!-- HOME -->
+    <section class="hero wrap" id="home">
+      <div class="hero-content reveal">
+        <p class="eyebrow">● THE FUTURE OF ACTIVE LIVING</p>
         <h1>
-            Your Fitness<br>
-            Journey,
-            <span>All in One Place.</span>
+          Your fitness<br>
+          <span class="accent">journey,</span><br>
+          <span class="soft">reimagined.</span>
         </h1>
-
         <p class="hero-description">
-            MOVEO is a proposed fitness platform that
-            helps users track their walking and running
-            activities while discovering local fitness events.
+          Move more, discover local fitness events, and keep your
+          progress in one place. Built for movement. Designed for community.
         </p>
+        <div class="hero-actions">
+          <a href="#preview" class="button">Explore MOVEO <span>↗</span></a>
+          <a class="plain-link" href="#about">Learn about us ↗</a>
+        </div>
+        <div class="hero-bottom">
+          <div class="avatar-bubbles">
+            <span>↗</span><span>◉</span><span>✳</span><span>⌖</span>
+          </div>
+          <div>
+            <strong>MOVE. DISCOVER. GO.</strong>
+            <small>One connected fitness experience</small>
+          </div>
+        </div>
+      </div>
 
-        <a href="#services" class="btn">
-            Explore Features ↗
-        </a>
-
-        <p class="hero-footnote">
-            Built for movement. Designed for community.
-        </p>
-
-    </div>
-
-    <!-- RIGHT SIDE: MOVEO LOGO -->
-    <div class="hero-image tilt">
-
+      <div class="hero-art reveal"
+        aria-label="MOVEO fitness tracking app illustration">
         <div class="orbit orbit-one"></div>
         <div class="orbit orbit-two"></div>
 
-        <img
-            src="image/M1.png"
-            alt="MOVEO Logo"
-        >
-
-    </div>
-
-</section>
-
-
-<!-- ABOUT MOVEO -->
-<section class="section" id="about">
-
-    <h2>About <span>MOVEO</span></h2>
-
-    <p class="section-description">
-        MOVEO is a startup concept developed to make fitness
-        activities and local event discovery more convenient.
-        It aims to bring activity tracking and fitness event
-        information together in one platform.
-    </p>
-
-    <div class="cards about-cards">
-
-        <!-- OUR MISSION -->
-        <div class="card">
-
-            <h3>Our Mission</h3>
-
-            <p>
-                To provide an accessible platform where users
-                can monitor their fitness activities and
-                discover local fitness events easily.
-            </p>
-
+        <div class="phone phone-rear">
+          <div class="phone-notch"></div>
+          <span class="phone-tag">MOVEO / EVENTS</span>
+          <h3>Find your<br>next move.</h3>
+          <div class="event-tile">
+            <span>⌖</span>
+            <div><strong>Local fun run</strong><small>Explore events nearby</small></div>
+          </div>
+          <div class="event-tile">
+            <span>↗</span>
+            <div><strong>Keep moving</strong><small>Join the community</small></div>
+          </div>
+          <div class="phone-button">Discover events ↗</div>
         </div>
 
-        <!-- OUR VISION -->
-        <div class="card">
+        <div class="phone phone-front">
+          <div class="phone-notch"></div>
+          <div class="phone-top"><strong>MOVEO</strong><span>◉</span></div>
+          <span class="phone-tag">TODAY'S ACTIVITY</span>
+          <h3>3.2 <small>km</small></h3>
+          <span class="phone-status">● WALKING SESSION</span>
 
-            <h3>Our Vision</h3>
-
-            <p>
-                To become a platform that encourages active
-                lifestyles and connects fitness communities
-                across the Philippines.
-            </p>
-
-        </div>
-
-        <!-- OUR GOALS -->
-       <div class="card">
-
-            <h3>Our Goals</h3>
-
-            <p>
-                To create a user-friendly and reliable platform
-                that promotes an active lifestyle, increases
-                participation in local fitness events, and
-                builds a stronger fitness community.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- 3. Products or Services -->
-<section class="section preview-section" id="preview"><div class="section-eyebrow">THE MOVEO EXPERIENCE</div>
-    <h2>Made to keep you <span>moving.</span></h2>
-
-    <p class="section-description">
-        A glimpse of the activity experience MOVEO aims to offer. This is an interactive concept preview, not a live tracking service.
-    </p>
-    
-    <div class="dashboard"><div class="dashboard-top"><div><small>ACTIVITY PREVIEW</small><h3>Your movement, visualized.</h3></div><span class="demo-chip"><i></i> INTERACTIVE DEMO</span></div><div class="dash-grid"><div class="metric"><small>Distance</small><strong id="distance">3.2 <em>km</em></strong><div class="metric-sub">Sample activity</div></div><div class="metric"><small>Duration</small><strong id="duration">28 <em>min</em></strong><div class="metric-sub">Sample activity</div></div><div class="metric"><small>Average pace</small><strong id="pace">8:45 <em>/km</em></strong><div class="metric-sub">Sample activity</div></div></div>
-    
-  
-
-<!-- REALISTIC MOVEO ACTIVITY GRAPH -->
-<div class="chart-area">
-
-    <div class="chart-head">
-        <span>Activity pace visualization</span>
-        <span class="chart-legend">● Sample data</span>
-    </div>
-
-    <div class="realistic-chart">
-
-        <div class="chart-y-labels">
-            <span>Fast</span>
-            <span>Moderate</span>
-            <span>Slow</span>
-        </div>
-
-        <svg
-            id="activity-chart"
-            viewBox="0 0 900 220"
-            preserveAspectRatio="none"
-            role="img"
-            aria-label="Animated sample activity pace graph"
-        >
+          <svg viewBox="0 0 240 130" class="phone-chart" aria-hidden="true">
             <defs>
-                <linearGradient id="fillChart"
-                    x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%"
-                        stop-color="#b5fa59"
-                        stop-opacity="0.28"/>
-                    <stop offset="100%"
-                        stop-color="#b5fa59"
-                        stop-opacity="0"/>
-                </linearGradient>
-
-                <filter id="chartGlow">
-                    <feGaussianBlur stdDeviation="3"/>
-                </filter>
+              <linearGradient id="phoneFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#baff32" stop-opacity=".4"/>
+                <stop offset="100%" stop-color="#baff32" stop-opacity="0"/>
+              </linearGradient>
             </defs>
+            <path d="M0 110 L24 90 L42 100 L65 72 L84 83 L104 57 L122 66 L144 36 L165 51 L185 27 L210 39 L240 12 L240 130 L0 130Z"
+              fill="url(#phoneFill)"/>
+            <path d="M0 110 L24 90 L42 100 L65 72 L84 83 L104 57 L122 66 L144 36 L165 51 L185 27 L210 39 L240 12"
+              stroke="#baff32" stroke-width="3" fill="none"/>
+          </svg>
 
-            <!-- Horizontal gridlines -->
-            <g class="chart-grid">
-                <line x1="0" y1="40" x2="900" y2="40"/>
-                <line x1="0" y1="90" x2="900" y2="90"/>
-                <line x1="0" y1="140" x2="900" y2="140"/>
-                <line x1="0" y1="190" x2="900" y2="190"/>
-            </g>
-
-            <!-- Animated graph -->
-            <path id="chart-fill" fill="url(#fillChart)"/>
-            <path id="chart-glow"
-                fill="none"
-                stroke="#b5fa59"
-                stroke-width="7"
-                opacity="0.25"
-                filter="url(#chartGlow)"/>
-
-            <path id="chart-line"
-                fill="none"
-                stroke="#b5fa59"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"/>
-
-            <circle id="chart-dot"
-                r="5"
-                fill="#b5fa59"
-                stroke="#ffffff"
-                stroke-width="2"/>
-        </svg>
-
-        <div class="chart-x-labels">
-            <span>0 min</span>
-            <span>8 min</span>
-            <span>16 min</span>
-            <span>24 min</span>
-            <span>32 min</span>
+          <div class="phone-metrics">
+            <div><strong>28 min</strong><small>Duration</small></div>
+            <div><strong>8:45</strong><small>Pace /km</small></div>
+          </div>
+          <div class="phone-button">View activity ↗</div>
         </div>
 
-    </div>
+        <div class="floating-label float-one">
+          <span>↗</span>
+          <div><small>ACTIVITY TRACKED</small><strong>Stay in motion</strong></div>
+        </div>
+        <div class="floating-label float-two">
+          <span>⌖</span>
+          <div><small>DISCOVER NEARBY</small><strong>Local fitness events</strong></div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-down">SCROLL TO EXPLORE ↓</a>
+    </section>
 
-</div>
+    <!-- ABOUT -->
+    <section class="section wrap" id="about">
+      <div class="section-header split reveal">
+        <div>
+          <p class="eyebrow">01 / ABOUT MOVEO</p>
+          <h2>Your <span class="accent">trusted</span> partner<br>for every move.</h2>
+        </div>
+        <p>MOVEO is a proposed platform designed to make fitness
+          tracking and discovering local events more convenient for everyone.</p>
+      </div>
+      <div class="about-cards">
+        <article class="about-card reveal">
+          <span class="card-num">01.</span>
+          <div><h3>Our Mission</h3>
+            <p>Provide an accessible platform to monitor fitness activities
+              and discover local events easily.</p></div>
+          <span class="card-arrow">↗</span>
+        </article>
+        <article class="about-card featured reveal">
+          <span class="card-num">02.</span>
+          <div><h3>Our Vision</h3>
+            <p>Encourage active lifestyles and connect fitness communities
+              across the Philippines.</p></div>
+          <span class="card-arrow">↗</span>
+        </article>
+        <article class="about-card reveal">
+          <span class="card-num">03.</span>
+          <div><h3>Our Goals</h3>
+            <p>Promote activity, increase participation in local fitness
+              events, and build a stronger community.</p></div>
+          <span class="card-arrow">↗</span>
+        </article>
+      </div>
+    </section>
 
+    <!-- INTERACTIVE PREVIEW -->
+    <section class="section wrap" id="preview">
+      <div class="preview-layout">
+        <div class="preview-visual reveal">
+          <div class="floating-metric metric-one">
+            <small>DISTANCE</small>
+            <strong id="distance">3.2 <em>km</em></strong>
+            <span>Sample activity</span>
+          </div>
+          <div class="floating-metric metric-two">
+            <small>AVERAGE PACE</small>
+            <strong id="pace">8:45 <em>/km</em></strong>
+            <span>Sample activity</span>
+          </div>
+          <div class="dashboard">
+            <div class="dashboard-heading">
+              <div>
+                <small>MOVEO / ACTIVITY PREVIEW</small>
+                <h3>Your movement, visualized.</h3>
+              </div>
+              <span class="demo-chip">● DEMO</span>
+            </div>
+            <div class="dashboard-stats">
+              <div><small>Distance</small><strong id="chart-distance">3.2 km</strong></div>
+              <div><small>Duration</small><strong id="duration">28 <em>min</em></strong></div>
+              <div><small>Activity</small><strong id="activity-type">Walking</strong></div>
+            </div>
+            <div class="chart-area">
+              <div class="chart-grid"></div>
+              <svg id="activity-chart" viewBox="0 0 900 220"
+                preserveAspectRatio="none" role="img" aria-label="Sample pace chart">
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#baff32" stop-opacity=".28"/>
+                    <stop offset="100%" stop-color="#baff32" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path id="chart-fill" fill="url(#chartGradient)"/>
+                <path id="chart-glow" fill="none" stroke="#baff32"
+                  stroke-width="10" opacity=".15"/>
+                <path id="chart-line" fill="none" stroke="#baff32"
+                  stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle id="chart-dot" r="6" fill="#baff32"
+                  stroke="#111616" stroke-width="3"/>
+              </svg>
+              <div class="chart-labels">
+                <span>0 MIN</span><span>8 MIN</span><span>16 MIN</span>
+                <span>24 MIN</span><span>32 MIN</span>
+              </div>
+            </div>
+            <div class="dashboard-bottom">
+              <span id="demo-label" aria-live="polite">Showing walking sample</span>
+              <button id="demo-toggle" class="button button-small" type="button">
+                Switch to running ↗
+              </button>
+            </div>
+          </div>
+        </div>
 
+        <div class="preview-content reveal">
+          <p class="eyebrow">02 / THE MOVEO EXPERIENCE</p>
+          <h2>Track progress.<br><span class="accent">Find your</span><br>next adventure.</h2>
+          <p>Explore what MOVEO aims to offer through a sample fitness
+            dashboard. Switch between walking and running to see the
+            interactive activity chart.</p>
+          <div class="feature-line"><span>✳</span> Track distance, time, and pace</div>
+          <div class="feature-line"><span>✳</span> View progress in one dashboard</div>
+          <div class="feature-line"><span>✳</span> Discover events in your community</div>
+          <a href="#services" class="button">Explore features ↗</a>
+          <small class="disclaimer">
+            Interactive concept preview only. No real GPS tracking is active.
+          </small>
+        </div>
+      </div>
+    </section>
 
-<div class="dash-actions"><button class="btn btn-small" id="demo-toggle" type="button">Switch to running</button><span id="demo-label">Showing walking sample</span></div></div></section><section class="section dark-section" id="services">
-<h2>Our <span>Services</span></h2>
-<p class="section-description">
-            Discover the proposed features of MOVEO.
-        </p>
-<div class="cards">
-<div class="card">
-<div class="service-icon">01</div>
-<h3>GPS Activity Tracking</h3>
-<p>
-                    Track walking and running activities,
-                    including distance, time, and pace.
-                </p>
-</div>
-<div class="card">
-<div class="service-icon">02</div>
-<h3>Local Event Discovery</h3>
-<p>
-                    Explore fun runs, walkathons, and
-                    other fitness events in your area.
-                </p>
-</div>
-<div class="card">
-<div class="service-icon">03</div>
-<h3>Event Information</h3>
-<p>
-                    View event dates, venues, fees,
-                    deadlines, and organizer details.
-                </p>
-</div>
-<div class="card">
-<div class="service-icon">04</div>
-<h3>Official Registration</h3>
-<p>
-                    Access official registration links
-                    provided by event organizers.
-                </p>
-</div>
-<div class="card">
-<div class="service-icon">05</div>
-<h3>Activity History</h3>
-<p>
-                    Review previously recorded walking
-                    and running activities.
-                </p>
-</div>
-<div class="card">
-<div class="service-icon">06</div>
-<h3>Event Submission</h3>
-<p>
-                    Allow organizers to submit local
-                    fitness events for review.
-                </p>
-</div>
-</div>
-</section>
-<!-- 4. Call to Action -->
+    <!-- SERVICES -->
+    <section class="section wrap" id="services">
+      <div class="section-header reveal">
+        <p class="eyebrow">03 / OUR SERVICES</p>
+        <h2>Everything you need<br>to <span class="accent">keep moving.</span></h2>
+        <p>Six connected features envisioned for the MOVEO platform.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <span class="service-index">01 / TRACK</span>
+          <span class="service-icon">⌖</span>
+          <h3>GPS Activity Tracking</h3>
+          <p>Track walks and runs, including distance, time, and pace.</p>
+          <span class="service-arrow">↗</span>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-index">02 / DISCOVER</span>
+          <span class="service-icon">✳</span>
+          <h3>Local Event Discovery</h3>
+          <p>Find fun runs, walkathons, and other local fitness events.</p>
+          <span class="service-arrow">↗</span>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-index">03 / INFORM</span>
+          <span class="service-icon">▤</span>
+          <h3>Event Information</h3>
+          <p>See event dates, venues, fees, deadlines, and organizer details.</p>
+          <span class="service-arrow">↗</span>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-index">04 / REGISTER</span>
+          <span class="service-icon">↗</span>
+          <h3>Official Registration</h3>
+          <p>Access official registration links from event organizers.</p>
+          <span class="service-arrow">↗</span>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-index">05 / REVIEW</span>
+          <span class="service-icon">◷</span>
+          <h3>Activity History</h3>
+          <p>Review your previously recorded walking and running activities.</p>
+          <span class="service-arrow">↗</span>
+        </article>
+        <article class="service-card reveal">
+          <span class="service-index">06 / CONNECT</span>
+          <span class="service-icon">＋</span>
+          <h3>Event Submission</h3>
+          <p>Allow organizers to submit events for review.</p>
+          <span class="service-arrow">↗</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section wrap" id="video">
+      <div class="section-header split reveal">
+        <div>
+          <p class="eyebrow">04 / PROMOTIONAL VIDEO</p>
+          <h2>See the idea<br><span class="accent">in motion.</span></h2>
+        </div>
+        <p>Watch our promotional video to discover how MOVEO aims to
+          connect people with fitness and local events.</p>
+      </div>
+      <div class="video-frame reveal">
+        <div class="video-frame-top">
+          <span>● MOVEO / PROMOTIONAL FILM</span>
+          <span>MOVE. DISCOVER. GO.</span>
+        </div>
+        <video controls preload="metadata" playsinline
+          poster="image/Running-landscape.png">
+          <source src="image/video.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+      </div>
+    </section>
+
+<!-- CALL TO ACTION -->
 <section class="cta">
-<h2>Ready to Move More?</h2>
-<p>
-            Discover how MOVEO aims to make
-            fitness tracking and local event
-            discovery easier.
-        </p>
-<a class="btn btn-dark" href="#contact">
-            Contact Us
-        </a>
-</section>  
-<!-- 5. Promotional Video -->
-<section class="section" id="video">
-<h2>Discover <span>MOVEO</span></h2>
-<p class="section-description">
-            Watch our one-minute promotional video
-            to learn more about our startup.
-        </p>
-<div class="video-container">
-<video controls="" preload="metadata">
-<source src="https://github.com/clark17-cloud/MOVEOCSS/releases/download/site-media/finalvvideo.mp4" type="video/mp4"/>
-                Your browser does not support
-                the video element.
-            </video>
-</div>
+  <div class="wrap cta-content reveal">
+    <p class="eyebrow">READY FOR YOUR NEXT MOVE?</p>
+    <h2>Move. Discover. <span>Go.</span></h2>
+    <p>Start exploring a more connected fitness experience with MOVEO.</p>
+
+    <a href="https://www.figma.com/proto/ztzOuJSxOs7KRqn758mW4k/Untitled?node-id=12-3&p=f&t=it3Qn03cDenYN0mn-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A3"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="button button-dark">
+      Try our Figma ↗
+    </a>
+
+    <div class="cta-ring" aria-hidden="true"></div>
+  </div>
 </section>
-<!-- 6. Contact Information -->
-<section class="section dark-section" id="contact">
-<h2>Contact <span>Us</span></h2>
-<p class="section-description">
-            Interested in MOVEO? Send us an inquiry
-            or share your feedback.
-        </p>
-<div class="contact-layout">
 
-<div class="contact-info">
 
-    <h3>Get in Touch</h3>
+    <!-- CONTACT -->
+    <section class="section wrap" id="contact">
+      <div class="section-header split reveal">
+        <div>
+          <p class="eyebrow">05 / CONTACT US</p>
+          <h2>Let's keep the<br>
+            <span class="accent">conversation moving.</span></h2>
+        </div>
+        <p>Interested in MOVEO? Visit our Facebook page, explore the
+          prototype, or send an inquiry.</p>
+      </div>
 
-    <p>
-        <strong>Startup:</strong> MOVEO
-    </p>
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <h3>Get in touch.</h3>
+          <div class="info-line"><span>STARTUP</span><strong>MOVEO</strong></div>
+          <div class="info-line">
+            <span>INSTITUTION</span>
+            <strong>Davao del Norte State College</strong>
+          </div>
+          <div class="info-line">
+            <span>LOCATION</span><strong>Philippines</strong>
+          </div>
+          <div class="contact-links">
+            <a href="https://www.facebook.com/profile.php?id=61596394106468"
+              target="_blank" rel="noopener noreferrer">
+              Visit MOVEO Facebook <span>↗</span>
+            </a>
 
-    <p>
-        <strong>Institution:</strong>
-        Davao del Norte State College
-    </p>
+          </div>
+        </div>
 
-    <p>
-        <strong>Location:</strong>
-        Philippines
-    </p>
+        <form id="contact-form" class="contact-form reveal">
+          <h3>Send an inquiry ↗</h3>
+          <label for="name">FULL NAME</label>
+          <input id="name" name="name" type="text"
+            placeholder="Your name" required>
 
-    <p>
-        <strong>Facebook:</strong>
-        <a
-            href="https://www.facebook.com/profile.php?id=61596394106468"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="facebook-link"
-        >
-            Visit MOVEO Page
-        </a>
-    </p>
+          <label for="email">EMAIL ADDRESS</label>
+          <input id="email" name="email" type="email"
+            placeholder="you@example.com" required>
 
-    <!-- TRY OUR PROTOTYPE -->
-    
-<!-- TRY OUR MOVEO PROTOTYPE -->
-<a
-    href="https://www.figma.com/proto/ztzOuJSxOs7KRqn758mW4k/Untitled?node-id=12-3&amp;p=f&amp;t=it3Qn03cDenYN0mn-0&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=12%3A3"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="prototype-outline-btn"
->
-    <span class="prototype-play">▶</span>
-    <span class="prototype-text">Try Our Prototype</span>
-    <span class="prototype-arrow">↗</span>
+          <label for="subject">SUBJECT</label>
+          <select id="subject" name="subject" required>
+            <option value="">Choose a subject</option>
+            <option value="general">General inquiry</option>
+            <option value="events">Fitness events</option>
+            <option value="feedback">Feedback</option>
+          </select>
+
+          <label for="message">MESSAGE</label>
+          <textarea id="message" name="message" rows="4"
+            placeholder="Write your message..." required></textarea>
+
+          <button type="submit" class="button">Submit inquiry ↗</button>
+          <p class="form-feedback" aria-live="polite" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section wrap" id="team">
+      <div class="section-header reveal">
+        <p class="eyebrow">06 / OUR TEAM</p>
+        <h2>The people behind <span class="accent">MOVEO.</span></h2>
+      </div>
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <div class="team-photo">
+            <img src="image/pic3.jpg" alt="Sandra Glodo" loading="lazy">
+          </div>
+          <div class="team-info">
+            <span>01 / PROJECT MANAGER</span>
+            <h3>Sandra Glodo</h3>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <div class="team-photo">
+            <img src="image/pic2.jpg" alt="Mark Vincent Belardo" loading="lazy">
+          </div>
+          <div class="team-info">
+            <span>02 / SYSTEM ANALYST</span>
+            <h3>Mark Vincent Belardo</h3>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <div class="team-photo">
+            <img src="image/pic1.jpg" alt="Julian Clark Ibarra" loading="lazy">
+          </div>
+          <div class="team-info">
+            <span>03 / PROGRAMMER</span>
+            <h3>Julian Clark Ibarra</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <a href="#home" class="brand">
+  <img src="image/M1.png" alt="MOVEO Logo" class="brand-logo">
+  <span>MOVEO<span class="accent">.</span></span>
 </a>
-
-
-</div>
-
-<!-- 7. Simple Inquiry Form -->
-<form class="contact-form" id="contact-form">
-<h3>Send an Inquiry</h3>
-<label for="name">Full Name</label>
-<input id="name" name="name" placeholder="Enter your name" required="" type="text"/>
-<label for="email">Email Address</label>
-<input id="email" name="email" placeholder="Enter your email" required="" type="email"/>
-<label for="subject">Subject</label>
-<select id="subject" name="subject" required="">
-<option value="">Select a subject</option>
-<option value="general">General Inquiry</option>
-<option value="events">Fitness Events</option>
-<option value="feedback">Feedback</option>
-</select>
-<label for="message">Message</label>
-<textarea id="message" name="message" placeholder="Write your message" required="" rows="5"></textarea>
-<button class="btn" type="submit">
-                    Submit Inquiry
-                </button>
-<p class="form-note"></p>
-<p aria-live="polite" class="form-feedback" role="status"></p></form>
-</div>
-</section>
-<!-- Meet Our Team -->
-<section class="team-section">
-<h2>Meet Our Team</h2>
-<div class="team-container">
-<div class="team-member tilt">
-<img alt="Sandra Glodo" src="image/pic3.jpg"/>
-<h4>Sandra Glodo</h4>
-<p>Project Manager</p>
-</div>
-<div class="team-member tilt">
-<img alt="Mark Vincent Belardo" src="image/pic2.jpg"/>
-<h4>Mark Vincent Belardo</h4>
-<p>System Analyst</p>
-</div>
-<div class="team-member tilt">
-<img alt="Julian Clark Ibarra" src="image/pic1.jpg"/>
-<h4>Julian Clark Ibarra</h4>
-<p>Programmer</p>
-</div>
-</div>
-</section>
-
-
-<!-- Footer -->
-<footer>
-<h3>MOVEO</h3>
-<p>Move. Discover. Go.</p>
-<p>Student Startup Project | 2026</p>
-</footer>
-
-<!-- MOVEO BACKGROUND MUSIC -->
-<audio id="background-music" loop preload="none">
-    <source
-        src="image/background-music.mp4"
-        type="audio/mp4"
-    >
-    Your browser does not support audio.
-</audio>
-
-<!-- Music control button -->
-<button
-    id="music-toggle"
-    type="button"
-    aria-label="Play background music"
-    aria-pressed="false"
->
-    ♫ Play Music
-</button>
-
-
-
-<!-- MOVEO ANIMATED ARROW CURSOR -->
-<div id="running-cursor" aria-hidden="true">
-    <div class="moveo-arrows">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        <p>Move. Discover. Go.</p>
+      </div>
+      <span>STUDENT STARTUP PROJECT / 2026</span>
+      <a href="#home">BACK TO TOP ↑</a>
     </div>
-</div>
+  </footer>
 
+  <!-- BACKGROUND MUSIC -->
+  <audio id="background-music" loop preload="none">
+    <source src="image/background-music.mp4" type="audio/mp4">
+  </audio>
+  <button id="music-toggle" type="button"
+    class="music-toggle" aria-label="Play background music"
+    aria-pressed="false">
+    ♫ <span>Music off</span>
+  </button>
 
+  <!-- ANIMATED ARROW CURSOR -->
+  <div id="running-cursor" aria-hidden="true">
+    <div class="moveo-arrows">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
 </body>
 </html>

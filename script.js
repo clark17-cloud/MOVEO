@@ -1,452 +1,354 @@
 
 /* =========================================
-   1. MOBILE NAVIGATION MENU
+   MOVEO | INTERACTIVE WEBSITE
 ========================================= */
 
-const menuButton = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-// Open and close the mobile menu
-menuButton?.addEventListener('click', () => {
-
-    const open = navLinks.classList.toggle('open');
-
-    menuButton.setAttribute('aria-expanded', String(open));
-
-    menuButton.textContent = open ? '✕' : '☰';
-
-});
-
-// Close the menu when a navigation link is clicked
-navLinks?.querySelectorAll('a').forEach(a => {
-
-    a.addEventListener('click', () => {
-
-        navLinks.classList.remove('open');
-
-        menuButton.setAttribute('aria-expanded', 'false');
-
-        menuButton.textContent = '☰';
-
-    });
-
-});
-
-
-/* =========================================
-   2. REDUCED MOTION SETTINGS
-========================================= */
-
-const reducedMotion = window.matchMedia(
+const reduceMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
 ).matches;
 
-
 /* =========================================
-   3. SCROLL REVEAL ANIMATIONS
+   1. MOBILE NAVIGATION
 ========================================= */
 
-if (!reducedMotion && 'IntersectionObserver' in window) {
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('#nav-links');
 
-    const observer = new IntersectionObserver(
+menuButton?.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
 
-        entries => entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add('visible');
-
-                observer.unobserve(entry.target);
-
-            }
-
-        }),
-
-        {
-            threshold: .08
-        }
-
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute(
+        'aria-label',
+        open ? 'Close menu' : 'Open menu'
     );
+    menuButton.textContent = open ? '✕' : '☰';
+});
 
-    document.querySelectorAll(
-        '.section h2, .section-description, .card, .team-member, .dashboard, .contact-form'
-    ).forEach(el => {
-
-        el.classList.add('reveal');
-
-        observer.observe(el);
-
+navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
     });
-
-}
-
+});
 
 /* =========================================
-   4. INTERACTIVE 3D HOVER EFFECT
+   2. SCROLL REVEAL ANIMATIONS
 ========================================= */
 
-if (
-    !reducedMotion &&
-    window.matchMedia('(hover: hover) and (pointer: fine)').matches
-) {
+const revealItems = document.querySelectorAll('.reveal');
 
-    document.querySelectorAll('.tilt').forEach(el => {
-
-        // Rotate element based on mouse position
-        el.addEventListener('pointermove', e => {
-
-            const r = el.getBoundingClientRect();
-
-            const x = (e.clientX - r.left) / r.width - .5;
-
-            const y = (e.clientY - r.top) / r.height - .5;
-
-            el.style.transform = `
-                perspective(900px)
-                rotateY(${x * 6}deg)
-                rotateX(${-y * 6}deg)
-                translateY(-3px)
-            `;
-
+if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(el => el.classList.add('visible'));
+} else {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
         });
+    }, { threshold: 0.1 });
 
-        // Reset element when mouse leaves
-        el.addEventListener('pointerleave', () => {
-
-            el.style.transform = '';
-
-        });
-
-    });
-
+    revealItems.forEach(el => observer.observe(el));
 }
 
-
 /* =========================================
-   5. INTERACTIVE FITNESS DASHBOARD
+   3. INTERACTIVE FITNESS DASHBOARD
 ========================================= */
+
+const paths = {
+    walking:
+        'M0 140 L35 131 L70 145 L105 120 L140 129 ' +
+        'L175 114 L210 132 L245 124 L280 109 ' +
+        'L315 119 L350 130 L385 111 L420 124 ' +
+        'L455 104 L490 113 L525 119 L560 100 ' +
+        'L595 115 L630 108 L665 94 L700 106 ' +
+        'L735 91 L770 104 L805 87 L840 99 ' +
+        'L875 85 L900 91',
+
+    running:
+        'M0 170 L35 145 L70 154 L105 116 L140 135 ' +
+        'L175 104 L210 121 L245 88 L280 112 ' +
+        'L315 79 L350 100 L385 74 L420 98 ' +
+        'L455 67 L490 90 L525 60 L560 84 ' +
+        'L595 54 L630 78 L665 48 L700 72 ' +
+        'L735 42 L770 62 L805 35 L840 58 ' +
+        'L875 28 L900 43'
+};
 
 let running = false;
-
-document.querySelector('#demo-toggle')?.addEventListener('click', () => {
-
-    // Switch between walking and running
-    running = !running;
-
-    // Update distance
-    document.querySelector('#distance').innerHTML = running
-        ? '5.0 <em>km</em>'
-        : '3.2 <em>km</em>';
-
-    // Update duration
-    document.querySelector('#duration').innerHTML = running
-        ? '32 <em>min</em>'
-        : '28 <em>min</em>';
-
-    // Update pace
-    document.querySelector('#pace').innerHTML = running
-        ? '6:24 <em>/km</em>'
-        : '8:45 <em>/km</em>';
-
-    // Update dashboard description
-    document.querySelector('#demo-label').textContent = running
-        ? 'Showing running pace'
-        : 'Showing walking pace';
-
-    // Update button text
-    document.querySelector('#demo-toggle').textContent = running
-        ? 'Switch to walking'
-        : 'Switch to running';
-
-});
-
-
-/* =========================================
-   6. CONTACT FORM
-========================================= */
-
-document.querySelector('#contact-form')?.addEventListener('submit', e => {
-
-    // Prevent the form from refreshing the page
-    e.preventDefault();
-
-    // Display demo message
-    document.querySelector('.form-feedback').textContent =
-        'This is a demo form. No message was sent. Please connect a backend to enable inquiries.';
-
-});
-/* Interactive hero glow */
-
-const hero = document.querySelector(".hero");
-const heroGlow = document.querySelector(".hero-glow");
-
-if (
-    hero &&
-    heroGlow &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
-    window.matchMedia("(pointer: fine)").matches
-) {
-    hero.addEventListener("pointermove", (event) => {
-        const rect = hero.getBoundingClientRect();
-
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-        heroGlow.style.marginLeft = `${x * 35}px`;
-        heroGlow.style.marginTop = `${y * 35}px`;
-    });
-
-    hero.addEventListener("pointerleave", () => {
-        heroGlow.style.marginLeft = "0px";
-        heroGlow.style.marginTop = "0px";
-    });
-}
-
-/* =========================================
-   MOVEO ANIMATED GRAPH
-========================================= */
-
-const activityChart = document.querySelector("#activity-chart");
-const chartLine = document.querySelector("#chart-line");
-const chartGlow = document.querySelector("#chart-glow");
-const chartFill = document.querySelector("#chart-fill");
-const chartDot = document.querySelector("#chart-dot");
-
-
-/* Realistic sample pace patterns */
-
-const walkingPath =
-    "M0 125 " +
-    "L35 120 L70 127 L105 115 L140 118 " +
-    "L175 110 L210 122 L245 117 L280 105 " +
-    "L315 112 L350 120 L385 109 L420 115 " +
-    "L455 100 L490 108 L525 113 L560 105 " +
-    "L595 115 L630 110 L665 100 L700 108 " +
-    "L735 95 L770 105 L805 98 L840 100 " +
-    "L875 92 L900 95";
-
-const runningPath =
-    "M0 145 " +
-    "L35 130 L70 115 L105 105 L140 110 " +
-    "L175 95 L210 102 L245 90 L280 100 " +
-    "L315 85 L350 95 L385 78 L420 90 " +
-    "L455 75 L490 85 L525 70 L560 82 " +
-    "L595 68 L630 80 L665 65 L700 75 " +
-    "L735 60 L770 72 L805 58 L840 65 " +
-    "L875 55 L900 60";
-
-
 let graphFrame = null;
 
-const graphReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches;
+const chart = document.querySelector('#chart-line');
+const glow = document.querySelector('#chart-glow');
+const fill = document.querySelector('#chart-fill');
+const dot = document.querySelector('#chart-dot');
 
-function animateActivityChart(mode = "walking") {
+function setText(selector, value) {
+    const element = document.querySelector(selector);
+    if (element) element.textContent = value;
+}
 
-    if (!activityChart || !chartLine || !chartGlow ||
-        !chartFill || !chartDot) {
-        return;
-    }
+function updateChart() {
+    if (!chart || !glow || !fill || !dot) return;
 
     if (graphFrame !== null) {
         cancelAnimationFrame(graphFrame);
-        graphFrame = null;
     }
 
-    const path = mode === "running" ? runningPath : walkingPath;
+    graphFrame = null;
 
-    chartLine.setAttribute("d", path);
-    chartGlow.setAttribute("d", path);
-   chartFill.setAttribute("d", path + " L900 220 L0 220 Z");
+    const path = running ? paths.running : paths.walking;
 
-    const length = chartLine.getTotalLength();
+    chart.setAttribute('d', path);
+    glow.setAttribute('d', path);
+    fill.setAttribute('d', `${path} L900 220 L0 220 Z`);
 
-    [chartLine, chartGlow].forEach(element => {
-        element.classList.remove("animate");
-        element.style.strokeDasharray = length;
-        element.style.strokeDashoffset = length;
-    });
+    const length = chart.getTotalLength();
 
-    chartFill.classList.remove("animate");
-    chartFill.style.opacity = "";
-    chartDot.style.opacity = "0";
+    if (reduceMotion) {
+        chart.style.strokeDasharray = 'none';
+        glow.style.strokeDasharray = 'none';
 
-    if (graphReducedMotion) {
-        chartLine.style.strokeDashoffset = "0";
-        chartGlow.style.strokeDashoffset = "0";
-        chartFill.style.opacity = "1";
-
-        const endPoint = chartLine.getPointAtLength(length);
-        chartDot.setAttribute("cx", endPoint.x);
-        chartDot.setAttribute("cy", endPoint.y);
-        chartDot.style.opacity = "1";
+        const end = chart.getPointAtLength(length);
+        dot.setAttribute('cx', end.x);
+        dot.setAttribute('cy', end.y);
+        dot.style.opacity = '1';
         return;
     }
 
-    void chartLine.getBoundingClientRect();
+    [chart, glow].forEach(line => {
+        line.style.strokeDasharray = String(length);
+        line.style.strokeDashoffset = String(length);
+    });
 
-    chartLine.classList.add("animate");
-    chartGlow.classList.add("animate");
-    chartFill.classList.add("animate");
+    dot.style.opacity = '0';
 
-    const duration = 3000;
+    const duration = 2600;
     const start = performance.now();
 
-    function moveDot(now) {
+    function frame(now) {
+        const progress = Math.min(
+            (now - start) / duration,
+            1
+        );
 
-        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
 
-        const eased = progress < 0.5
-            ? 4 * progress * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+        [chart, glow].forEach(line => {
+            line.style.strokeDashoffset =
+                String(length * (1 - eased));
+        });
 
-        const point = chartLine.getPointAtLength(length * eased);
+        const point = chart.getPointAtLength(length * eased);
 
-        chartDot.setAttribute("cx", point.x);
-        chartDot.setAttribute("cy", point.y);
-        chartDot.style.opacity = "1";
+        dot.setAttribute('cx', point.x);
+        dot.setAttribute('cy', point.y);
+        dot.style.opacity = '1';
 
         if (progress < 1) {
-            graphFrame = requestAnimationFrame(moveDot);
+            graphFrame = requestAnimationFrame(frame);
         } else {
             graphFrame = null;
         }
     }
 
-    graphFrame = requestAnimationFrame(moveDot);
+    graphFrame = requestAnimationFrame(frame);
 }
 
-/* Animate when the graph enters the screen */
+function updateDashboard() {
+    const distance = document.querySelector('#distance');
+    const pace = document.querySelector('#pace');
+    const duration = document.querySelector('#duration');
 
-if (activityChart && "IntersectionObserver" in window) {
+    if (distance) {
+        distance.innerHTML = running
+            ? '5.0 <em>km</em>'
+            : '3.2 <em>km</em>';
+    }
 
-    const graphObserver = new IntersectionObserver(entries => {
+    if (pace) {
+        pace.innerHTML = running
+            ? '6:24 <em>/km</em>'
+            : '8:45 <em>/km</em>';
+    }
 
-        entries.forEach(entry => {
+    if (duration) {
+        duration.innerHTML = running
+            ? '32 <em>min</em>'
+            : '28 <em>min</em>';
+    }
 
-            if (entry.isIntersecting) {
-                animateActivityChart("walking");
-                graphObserver.unobserve(entry.target);
-            }
+    setText('#chart-distance', running ? '5.0 km' : '3.2 km');
+    setText('#activity-type', running ? 'Running' : 'Walking');
+    setText('#demo-label',
+        running ? 'Showing running sample' : 'Showing walking sample'
+    );
+    setText('#demo-toggle',
+        running ? 'Switch to walking ↗' : 'Switch to running ↗'
+    );
 
-        });
-
-    }, { threshold: 0.3 });
-
-    graphObserver.observe(activityChart);
-
-} else if (activityChart) {
-    animateActivityChart("walking");
+    updateChart();
 }
 
-/* Replay animation when switching activity */
-
-document.querySelector("#demo-toggle")?.addEventListener(
-    "click",
+document.querySelector('#demo-toggle')?.addEventListener(
+    'click',
     () => {
-
-        const label = document.querySelector("#demo-label");
-        const mode = label?.textContent.includes("running")
-            ? "running"
-            : "walking";
-
-        animateActivityChart(mode);
+        running = !running;
+        updateDashboard();
     }
 );
 
+/* Start graph animation when visible */
+
+const chartContainer = document.querySelector('#activity-chart');
+
+if (
+    chartContainer &&
+    'IntersectionObserver' in window &&
+    !reduceMotion
+) {
+    const chartObserver = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+            updateChart();
+            chartObserver.disconnect();
+        }
+    }, { threshold: 0.2 });
+
+    chartObserver.observe(chartContainer);
+} else {
+    updateChart();
+}
+
 /* =========================================
-   MOVEO BACKGROUND MUSIC
+   4. CONTACT FORM
 ========================================= */
 
-const backgroundMusic = document.querySelector(
-    "#background-music"
-);
+const contactForm = document.querySelector('#contact-form');
 
-const musicToggle = document.querySelector(
-    "#music-toggle"
-);
+contactForm?.addEventListener('submit', event => {
+    event.preventDefault();
 
-if (backgroundMusic && musicToggle) {
+    const feedback = contactForm.querySelector('.form-feedback');
 
-    backgroundMusic.volume = 0.25;
+    if (feedback) {
+        feedback.textContent =
+            'This is a demo form. No message was sent. ' +
+            'Connect a backend to receive inquiries.';
+    }
+});
 
-    musicToggle.addEventListener("click", async () => {
+/* =========================================
+   5. MOVEO BACKGROUND MUSIC
+========================================= */
 
-        if (backgroundMusic.paused) {
+const music = document.querySelector('#background-music');
+const musicButton = document.querySelector('#music-toggle');
 
+if (music && musicButton) {
+    music.volume = 0.25;
+
+    musicButton.addEventListener('click', async () => {
+        if (music.paused) {
             try {
-                await backgroundMusic.play();
+                await music.play();
 
-                musicToggle.textContent = "♫ Pause Music";
-                musicToggle.setAttribute(
-                    "aria-label",
-                    "Pause background music"
+                musicButton.querySelector('span').textContent = 'Music on';
+                musicButton.setAttribute('aria-pressed', 'true');
+                musicButton.setAttribute(
+                    'aria-label',
+                    'Pause background music'
                 );
-                musicToggle.setAttribute(
-                    "aria-pressed",
-                    "true"
-                );
-
             } catch (error) {
-                console.error(
-                    "Background music could not play:",
+                musicButton.querySelector('span').textContent =
+                    'Audio unavailable';
+
+                console.warn(
+                    'Background audio could not play:',
                     error
                 );
             }
-
         } else {
+            music.pause();
 
-            backgroundMusic.pause();
-
-            musicToggle.textContent = "♫ Play Music";
-            musicToggle.setAttribute(
-                "aria-label",
-                "Play background music"
-            );
-            musicToggle.setAttribute(
-                "aria-pressed",
-                "false"
+            musicButton.querySelector('span').textContent = 'Music off';
+            musicButton.setAttribute('aria-pressed', 'false');
+            musicButton.setAttribute(
+                'aria-label',
+                'Play background music'
             );
         }
-
     });
 }
 
+/* =========================================
+   6. SMALL MOVEO ANIMATED ARROW CURSOR
+========================================= */
 
+const arrowCursor = document.querySelector('#running-cursor');
 
-/* MOVEO ASSISTIVE ARROW CURSOR */
-
-const arrowCursor = document.getElementById("running-cursor");
-
-if (arrowCursor) {
-
+if (
+    arrowCursor &&
+    !reduceMotion &&
+    window.matchMedia(
+        '(hover: hover) and (pointer: fine)'
+    ).matches
+) {
     let mouseX = -100;
     let mouseY = -100;
+
     let cursorX = -100;
     let cursorY = -100;
 
-    document.addEventListener("mousemove", (event) => {
+    document.addEventListener('pointermove', event => {
         mouseX = event.clientX;
         mouseY = event.clientY;
-        arrowCursor.style.opacity = "1";
+        arrowCursor.style.opacity = '1';
     });
 
-    document.addEventListener("mouseout", (event) => {
+    document.addEventListener('pointerout', event => {
         if (!event.relatedTarget) {
-            arrowCursor.style.opacity = "0";
+            arrowCursor.style.opacity = '0';
         }
     });
 
-    function moveArrowCursor() {
+    function moveArrow() {
         cursorX += (mouseX - cursorX) * 0.25;
         cursorY += (mouseY - cursorY) * 0.25;
 
         arrowCursor.style.transform =
-            `translate3d(${cursorX + 15}px, ${cursorY + 15}px, 0)`;
+            `translate3d(${cursorX + 8}px, ${cursorY + 8}px, 0)`;
 
-        requestAnimationFrame(moveArrowCursor);
+        requestAnimationFrame(moveArrow);
     }
 
-    moveArrowCursor();
+    requestAnimationFrame(moveArrow);
+}
+
+/* =========================================
+   MOVEO INTRO CONTROLLER
+========================================= */
+
+const moveoIntro = document.getElementById("moveo-intro");
+
+if (moveoIntro) {
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reducedMotion) {
+        moveoIntro.remove();
+    } else {
+        moveoIntro.addEventListener(
+            "animationend",
+            function (event) {
+                if (event.target === moveoIntro &&
+                    event.animationName === "introExit") {
+                    moveoIntro.remove();
+                }
+            }
+        );
+    }
 }
