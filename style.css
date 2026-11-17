@@ -2537,3 +2537,231 @@ footer .footer-content > a:hover {
 .contact-form select:hover {
     border-color: #baff32;
 }
+
+/* =====================================
+   MOVEO MOBILE RESPONSIVE FIX
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 85px;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+img, video, svg {
+    max-width: 100%;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+
+    .wrap {
+        width: calc(100% - 40px);
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 90px;
+        gap: 60px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-art {
+        width: 100%;
+        min-height: 500px;
+        position: relative;
+    }
+
+    .preview-layout,
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cards,
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main > .section {
+        min-height: auto;
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    .wrap {
+        width: calc(100% - 32px);
+    }
+
+    .site-header .nav {
+        min-height: 70px;
+    }
+
+    .nav-action {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links:not(.open) {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 105px;
+        padding-bottom: 65px;
+        gap: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 10vw, 58px);
+        line-height: 1.08;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .hero-art {
+        min-height: 390px;
+        transform: scale(0.78);
+        transform-origin: center top;
+        margin-bottom: -65px;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+
+    main > .section {
+        min-height: auto;
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .section h2 {
+        font-size: clamp(30px, 8vw, 42px);
+    }
+
+    .section-header.split,
+    .preview-layout,
+    .contact-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .about-cards,
+    .service-grid,
+    .team-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .preview-visual {
+        min-width: 0;
+        padding-bottom: 35px;
+    }
+
+    .dashboard {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .dashboard-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .floating-metric {
+        display: none;
+    }
+
+    .video-frame video {
+        width: 100%;
+        height: auto;
+    }
+
+    .cta {
+        min-height: auto;
+        padding: 90px 0;
+    }
+
+    .cta h2 {
+        font-size: clamp(38px, 10vw, 58px);
+    }
+
+    .contact-form {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    footer .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .music-toggle {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+}
+
+/* SMALL PHONES */
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .hero-art {
+        transform: scale(0.65);
+        margin-bottom: -115px;
+    }
+
+    .button {
+        font-size: 12px;
+    }
+}
