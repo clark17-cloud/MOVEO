@@ -240,48 +240,70 @@ contactForm?.addEventListener('submit', event => {
     }
 });
 
+
 /* =========================================
    5. MOVEO BACKGROUND MUSIC
 ========================================= */
 
-const music = document.querySelector('#background-music');
-const musicButton = document.querySelector('#music-toggle');
+const music = document.getElementById('background-music');
+const musicButton = document.getElementById('music-toggle');
 
 if (music && musicButton) {
+
+    const musicLabel = musicButton.querySelector('span');
+
+    // Background music volume: 25%
     music.volume = 0.25;
 
+    // Repeat music continuously
+    music.loop = true;
+
+    function updateMusicButton() {
+        const isPlaying = !music.paused;
+
+        if (musicLabel) {
+            musicLabel.textContent = isPlaying
+                ? 'Music on'
+                : 'Music off';
+        }
+
+        musicButton.setAttribute(
+            'aria-pressed',
+            String(isPlaying)
+        );
+
+        musicButton.setAttribute(
+            'aria-label',
+            isPlaying
+                ? 'Pause background music'
+                : 'Play background music'
+        );
+    }
+
     musicButton.addEventListener('click', async () => {
+
         if (music.paused) {
             try {
                 await music.play();
-
-                musicButton.querySelector('span').textContent = 'Music on';
-                musicButton.setAttribute('aria-pressed', 'true');
-                musicButton.setAttribute(
-                    'aria-label',
-                    'Pause background music'
-                );
             } catch (error) {
-                musicButton.querySelector('span').textContent =
-                    'Audio unavailable';
-
-                console.warn(
-                    'Background audio could not play:',
+                console.error(
+                    'Unable to play background music:',
                     error
                 );
             }
         } else {
             music.pause();
-
-            musicButton.querySelector('span').textContent = 'Music off';
-            musicButton.setAttribute('aria-pressed', 'false');
-            musicButton.setAttribute(
-                'aria-label',
-                'Play background music'
-            );
         }
+
+        updateMusicButton();
     });
+
+    music.addEventListener('play', updateMusicButton);
+    music.addEventListener('pause', updateMusicButton);
+
+    updateMusicButton();
 }
+
 
 /* =========================================
    6. SMALL MOVEO ANIMATED ARROW CURSOR

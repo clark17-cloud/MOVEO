@@ -1,52 +1,66 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090d0e">
+
   <title>MOVEO | Move. Discover. Go.</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 
+<body>
 
-<!-- MOVEO CINEMATIC INTRO -->
-<div id="moveo-intro" class="moveo-intro" aria-label="MOVEO introduction">
+  <!-- MOVEO CINEMATIC INTRO -->
+  <div id="moveo-intro" class="moveo-intro" aria-label="MOVEO introduction">
+
     <div class="intro-glow"></div>
 
     <div class="intro-waves" aria-hidden="true">
-        <div class="intro-wave wave-one"></div>
-        <div class="intro-wave wave-two"></div>
-        <div class="intro-wave wave-three"></div>
+      <div class="intro-wave wave-one"></div>
+      <div class="intro-wave wave-two"></div>
+      <div class="intro-wave wave-three"></div>
     </div>
 
     <div class="intro-content">
-        <p class="intro-eyebrow">THE FUTURE OF ACTIVE LIVING</p>
-        <h1>MOVEO<span>.</span></h1>
-        <p class="intro-tagline">Move. Discover. Go.</p>
+      <p class="intro-eyebrow">THE FUTURE OF ACTIVE LIVING</p>
+      <h1>MOVEO<span></span></h1>
+      <p class="intro-tagline">Move. Discover. Go.</p>
     </div>
 
     <div class="intro-progress">
-        <span></span>
+      <span></span>
     </div>
-</div>
 
-<body>
+  </div>
+
+  <!-- BACKGROUND -->
   <div class="background-grid" aria-hidden="true"></div>
 
+  <!-- NAVIGATION -->
   <header class="site-header">
     <nav class="nav wrap" aria-label="Main navigation">
-    <a href="#home" class="brand">
-    <img src="image/M1.png" alt="MOVEO Logo" class="brand-logo">
-    <span>MOVEO<span class="accent">.</span></span>
-</a>
+
+      <a href="#home" class="brand">
+        <img src="image/M1.png" alt="MOVEO Logo" class="brand-logo">
+        <span>MOVEO<span class="accent">.</span></span>
+      </a>
+
       <button class="menu-toggle" type="button"
-        aria-controls="nav-links" aria-expanded="false"
+        aria-controls="nav-links"
+        aria-expanded="false"
         aria-label="Toggle menu">☰</button>
+
       <div class="nav-links" id="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -56,15 +70,18 @@
         <a href="#contact">Contact</a>
         <a href="#team">Team</a>
       </div>
+
       <a class="button button-small nav-action" href="#preview">
         Explore now ↗
       </a>
+
     </nav>
   </header>
 
-  <main>
-    <!-- HOME -->
-    <section class="hero wrap" id="home">
+<main>
+
+  <!-- HOME -->
+  <section class="hero wrap" id="home">
       <div class="hero-content reveal">
         <p class="eyebrow">● THE FUTURE OF ACTIVE LIVING</p>
         <h1>
@@ -255,7 +272,6 @@
           <div class="feature-line"><span>✳</span> Discover events in your community</div>
           <a href="#services" class="button">Explore features ↗</a>
           <small class="disclaimer">
-            Interactive concept preview only. No real GPS tracking is active.
           </small>
         </div>
       </div>
@@ -331,7 +347,7 @@
         </div>
         <video controls preload="metadata" playsinline
           poster="image/Running-landscape.png">
-          <source src="image/video.mp4" type="video/mp4">
+          <source src="image/lastnani.mp4" type="video/mp4">
           Your browser does not support video.
         </video>
       </div>
@@ -425,7 +441,7 @@
       <div class="team-grid">
         <article class="team-card reveal">
           <div class="team-photo">
-            <img src="image/pic3.jpg" alt="Sandra Glodo" loading="lazy">
+            <img src="image/Sandra.jpg" alt="Sandra Glodo" loading="lazy">
           </div>
           <div class="team-info">
             <span>01 / PROJECT MANAGER</span>
@@ -434,7 +450,7 @@
         </article>
         <article class="team-card reveal">
           <div class="team-photo">
-            <img src="image/pic2.jpg" alt="Mark Vincent Belardo" loading="lazy">
+            <img src="image/Mark.jpg" alt="Mark Vincent Belardo" loading="lazy">
           </div>
           <div class="team-info">
             <span>02 / SYSTEM ANALYST</span>
@@ -443,7 +459,7 @@
         </article>
         <article class="team-card reveal">
           <div class="team-photo">
-            <img src="image/pic1.jpg" alt="Julian Clark Ibarra" loading="lazy">
+            <img src="image/Julian.JPG" alt="Julian Clark Ibarra" loading="lazy">
           </div>
           <div class="team-info">
             <span>03 / PROGRAMMER</span>
@@ -452,28 +468,44 @@
         </article>
       </div>
     </section>
+
   </main>
 
-  <a href="#home" class="brand">
-  <img src="image/M1.png" alt="MOVEO Logo" class="brand-logo">
-  <span>MOVEO<span class="accent">.</span></span>
-</a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap footer-content">
+
+      <div>
+        <a href="#home" class="brand">
+          <img src="image/M1.png"
+               alt="MOVEO Logo"
+               class="brand-logo">
+          <span>MOVEO<span class="accent">.</span></span>
+        </a>
+
         <p>Move. Discover. Go.</p>
       </div>
+
       <span>STUDENT STARTUP PROJECT / 2026</span>
+
       <a href="#home">BACK TO TOP ↑</a>
+
     </div>
   </footer>
 
-  <!-- BACKGROUND MUSIC -->
-  <audio id="background-music" loop preload="none">
-    <source src="image/background-music.mp4" type="audio/mp4">
-  </audio>
-  <button id="music-toggle" type="button"
-    class="music-toggle" aria-label="Play background music"
-    aria-pressed="false">
+<!-- BACKGROUND MUSIC -->
+<audio id="background-music" loop preload="none">
+    <source src="image/backgroundmusic.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+</audio>
+
+<button id="music-toggle"
+        type="button"
+        class="music-toggle"
+        aria-label="Play background music"
+        aria-pressed="false">
     ♫ <span>Music off</span>
-  </button>
+</button>
 
   <!-- ANIMATED ARROW CURSOR -->
   <div id="running-cursor" aria-hidden="true">
